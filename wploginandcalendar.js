@@ -36,8 +36,8 @@ function getFechas() {
 
 casper.start('http://bearbero.com/mis-reservas/', function() {
 this.fillSelectors('form#loginform', {
-  'input[name="log"]': 'ignacioescudero',
-  'input[name="pwd"]': 'Contra$0',
+  'input[name="log"]': '',
+  'input[name="pwd"]': '',
   'input[name="rememberme"]': true
   }, true);
 
