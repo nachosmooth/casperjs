@@ -30,8 +30,8 @@ function getFechas() {
 
 casper.start('http://bearbero.com/mis-reservas/', function() {
     this.fillSelectors('form#loginform', {
-    'input[name="log"]': ' ',
-    'input[name="pwd"]': ' ',
+    'input[name="log"]': '',
+    'input[name="pwd"]': '',
     'input[name="rememberme"]': true
     }, true);
 });
@@ -67,16 +67,27 @@ casper.then(function(){
     //});
 });
 
+
 casper.then(function(){
     this.each(fechas, function(self, fechai){
         self.echo("Voy poniendo fechas " + fechai);
         this.then(function(){
             this.clickLabel(fechai, 'span');
-            this.waitForSelector("button.new-appt.button", function(){
-                if 
 
-        });
+	    this.wait(1000, function(){
+        //        if 
+	    this.waitForSelector('a.wdpu-close', function() {});
+            this.mouseEvent('click',  'a.wdpu-close');
+	    this.wait(1000, function(){});
+	    this.capture(fechai, undefined, {
+                    format: 'jpg',
+                    quality: 65
+                    });
+	    });
+	});
 });
+});
+
 
 
 
